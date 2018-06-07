@@ -11,9 +11,10 @@ using System;
 namespace ChatterTracker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180606180937_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,14 +74,14 @@ namespace ChatterTracker.Data.Migrations
 
             modelBuilder.Entity("ChatterTracker.Models.Chat", b =>
                 {
-                    b.Property<int>("UserID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("TextMessage");
 
                     b.Property<string>("UserName");
 
-                    b.HasKey("UserID");
+                    b.HasKey("ID");
 
                     b.ToTable("Chat");
                 });
